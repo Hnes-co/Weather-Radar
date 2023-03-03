@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { apiKey } from '../api.json';
+const apiKey = import.meta.env.VITE_APIKEY;
 
 export async function getWeatherData(value) {
   try {
