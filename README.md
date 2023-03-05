@@ -1,6 +1,8 @@
 # Weather Radar
 
-## Installation & running the app
+**App is running live at** https://weather-radar.onrender.com
+
+## Installation & running the app locally
 
 ```bash
 $ git clone https://github.com/Hnes-co/Weather-Radar.git
@@ -12,11 +14,9 @@ When the app is running click the address link in your terminal or press 'o' key
 
 ## Adding your api key
 
-- Inside Weather-Radar/src/ create api.json file with the following content:
+- Inside Weather-Radar create .env file with the following content:
 ```bash
-{
-    "apiKey": "your-api-key-here"
-}
+VITE_APIKEY=your_api_key_here
 ```
 
 ## Tests

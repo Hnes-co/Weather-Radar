@@ -1,45 +1,16 @@
 
 export function handlePrecipitation(type, data) {
-  if(type === 'current') {
-    if(data.rain) {
-      if(data.rain['3h']) {
-        return `Precipitation (3 h): ${data.rain['3h']} mm`;
-      }
-      else {
-        return `Precipitation (1 h): ${data.rain['1h']} mm`;
-      }
+  if(data.rain) {
+    if(type === 'current') {
+      return data.rain['3h'] ? `Precipitation (3 h): ${data.rain['3h']} mm` : `Precipitation (1 h): ${data.rain['1h']} mm`;
     }
-    else if(data.snow) {
-      if(data.snow['3h']) {
-        return `Precipitation (3 h): ${data.snow['3h']} mm`;
-      }
-      else {
-        return `Precipitation (1 h): ${data.snow['1h']} mm`;
-      }
-    }
-    else {
-      return 'Precipitation (3 h): 0 mm';
-    }
+    return data.rain['3h'] ? `${data.rain['3h']} mm` : `${data.rain['1h']} mm`;
   }
-  else {
-    if(data.rain) {
-      if(data.rain['3h']) {
-        return `${data.rain['3h']} mm`;
-      }
-      else {
-        return `${data.rain['1h']} mm`;
-      }
+  if(data.snow) {
+    if(type === 'current') {
+      return data.snow['3h'] ? `Precipitation (3 h): ${data.snow['3h']} mm` : `Precipitation (1 h): ${data.snow['1h']} mm`;
     }
-    else if(data.snow) {
-      if(data.snow['3h']) {
-        return `${data.snow['3h']} mm`;
-      }
-      else {
-        return `${data.snow['1h']} mm`;
-      }
-    }
-    else {
-      return '0 mm';
-    }
+    return data.snow['3h'] ? `${data.snow['3h']} mm` : `${data.snow['1h']} mm`;
   }
+  return type === 'current' ? 'Precipitation (3 h): 0 mm' : '0 mm';
 }
