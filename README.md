@@ -1,7 +1,5 @@
 # Weather Radar
 
-**App is running live at** https://weather-radar.onrender.com
-
 ## Installation & running the app locally
 
 ```bash
